@@ -228,7 +228,6 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap-sass (~> 3.3)
-  carrierwave (~> 1.2)
   cloudinary (~> 1.9.1)
   devise
   dotenv-rails

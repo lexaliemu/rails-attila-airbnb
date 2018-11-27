@@ -1,0 +1,14 @@
+<h1>Movies#new</h1>
+<p>Find me in app/views/movies/new.html.erb</p>
+
+<%= simple_form_for [@movie] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :release_date %>
+  <%= f.input :duration %>
+  <%= f.input :description %>
+  <%= f.input :synopsis %>
+  <%= f.input :director %>
+  <%= f.input :cover %>
+  <%= f.input :price %>
+  <%= f.submit "add a movie", class: "btn btn-primary" %>
+<% end %>
