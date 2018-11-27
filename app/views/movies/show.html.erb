@@ -1,6 +1,39 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
-<p>title <%= @movie.title %>
-<%= cl_image_tag @movie.cover, height: 300, width: 400, crop: :fill %>
+<div class="wrapper">
+  <div class="container">
 
-<%= link_to 'All movies', movies_path  %>
+
+    <div class="cover row justify-content-md-center">
+      <div class="col col-lg-4">
+        <%= cl_image_tag @movie.cover, height: 600, width: 300, crop: :limit %>
+      </div>
+
+      <div class="card-movie-detail col-lg-8">
+        <p> <%= @movie.title %>
+        (<%= @movie.release_date %>)
+        (uploaded by <%= @movie.user_id %>)
+        </p>
+        <p><%= @movie.duration/60000 %>min</p>
+        <p>Director : <%= @movie.director %></p>
+        <p><%= @movie.description %></p>
+
+
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="buy-space col col-lg-4">
+        <button type="button" class="btn btn-danger">Buy this movie</button>
+      </div>
+
+      <div class="col-lg-8">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+
+</div>
