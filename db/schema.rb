@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_165334) do
+ActiveRecord::Schema.define(version: 2018_11_26_172729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "movies", force: :cascade do |t|
+    t.text "title"
+    t.integer "release_date"
+    t.integer "duration"
+    t.text "description"
+    t.text "synopsis"
+    t.string "director"
+    t.string "cover"
+    t.integer "price"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_movies_on_user_id"
+  end
+
+  create_table "rentings", force: :cascade do |t|
+    t.bigint "movie_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_rentings_on_movie_id"
+    t.index ["user_id"], name: "index_rentings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +52,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_165334) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "movies", "users"
+  add_foreign_key "rentings", "movies"
+  add_foreign_key "rentings", "users"
 end
