@@ -1,3 +1,7 @@
+require 'json'
+require 'open-uri'
+key = 'apikey=a7b874e'
+
 puts 'Deleting all movies'
 Movie.destroy_all
 
@@ -51,4 +55,27 @@ puts 'Adding cover and saving'
 movies.each_with_index do |movie, index|
   movies[index].remote_cover_url = cover_urls[index]
   movie.save
+end
+
+puts 'IMDB'
+
+list_movies = ['Die Hard','Harry Potter', 'Bohemian Rhapsody', 'Halloween', 'William & Kate']
+list_movies.each do |movie|
+  url = "http://www.omdbapi.com/?t=#{movie}&#{key}"
+  movie_serialized = open(url).read
+  movie_hash = JSON.parse(movie_serialized)
+  new_movie = Movie.create(
+    {
+      title: movie_hash['Title'],
+      release_date: movie_hash['Year'],
+      duration: 5940000,
+      description: movie_hash['Genre'],
+      synopsis: movie_hash['Plot'],
+      director: movie_hash['Director'],
+      price: 5.99,
+      rating: movie_hash['imdbRating'],
+      user_id: 1
+    })
+  new_movie.remote_cover_url = movie_hash['Poster']
+  new_movie.save
 end

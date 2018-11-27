@@ -1,6 +1,4 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
-<p>title <%= @movie.title %>
-<%= cl_image_tag @movie.cover, height: 300, width: 400, crop: :fill %>
+
+<p><%= @movie.title %> <%= cl_image_tag @movie.cover, height: 300, width: 400, crop: :fill %> </p>
 
 <%= link_to 'All movies', movies_path  %>
