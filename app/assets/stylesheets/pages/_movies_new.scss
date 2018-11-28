@@ -1,6 +1,13 @@
-.form-new-movie {
+.container-flex {
   display: flex;
-  flex-direction: column;
+}
+
+.form-new-movie {
+  flex-direction: row;
   justify-content: space-around;
   align-items: left;
+}
+
+#img-new-movie {
+  width: 100%;
 }

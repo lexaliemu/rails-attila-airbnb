@@ -1,13 +1,12 @@
-<h3>Nous allons vous aider à publier votre annonce.</h3>
+<div class="container-flex">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Upload your movie !</h3>
+      <%= render 'form1', movie: @movie %>
+    </div>
 
-<div class="container">
-  <div class="form-new-movie row col-lg-6">
-    <%= render 'form1', movie: @movie %>
+    <div class="col-md-6">
+      <%= image_tag "add-a-movie.jpg", alt: "alttext", id: "img-new-movie"%>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
