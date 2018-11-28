@@ -15,21 +15,20 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row text-center">
       <% @movies.each do |movie| %>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="card">
-            <img src='https://source.unsplash.com/random' class="movie-card-cover">
-            <div class="card-elements">
-              <h2><%= movie.title %></h2>
-              <p><%= movie.duration %></p>
-              <p>Director: <%= movie.director %></p>
-            </div>
+        <div class="col-md-4">
+          <div class="card-movie">
+            <%= cl_image_tag movie.cover, height: 300, width: 150, crop: :fill %>
+            <p><%= movie.title %></p>
+            <p><%= movie.duration %></p>
+            <p>Directed by: <%= movie.director %></p>
+            <%= link_to "", movie_path(movie), class: 'card-link' %>
           </div>
-          <%= link_to "", movie_path(movie), class: 'card-link' %>
         </div>
       <% end %>
     </div>
+
   </div>
 </div>
 
