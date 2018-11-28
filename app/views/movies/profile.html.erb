@@ -1,14 +1,23 @@
-<p> Profile</p>
+<h1 class="text-center"> My Movies</h1>
 
-<ul>
-  <% @movies.each do |movie| %>
-  <li>
-    <%= movie.title %> <%= cl_image_tag movie.cover, height: 300, width: 400, crop: :fill %>
-  </li>
-  <%= link_to 'Edit', edit_movie_path(movie) %>
-  <%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }  %>
-  <% end %>
-</ul>
+<div class="wrapper">
+  <div class="container movies-container">
+    <div class="row text-center">
+      <% @movies.each do |movie| %>
+        <div class="col-md-4">
+          <div class="card-movie position-relative">
+            <%= cl_image_tag movie.cover, height: 150, width: 300 , crop: :fill %>
+            <p><%= movie.title %></p>
+            <p><%= movie.duration %></p>
+            <p>Directed by: <%= movie.director %></p>
+            <p class="fixed-bottom-left"><%= link_to 'Edit', edit_movie_path(movie) %></p>
+            <p class="fixed-bottom-right"><%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Add a movie', new_movie_path  %>
 <%= link_to 'All movies', movies_path  %>
