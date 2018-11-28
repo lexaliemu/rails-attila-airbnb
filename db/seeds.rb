@@ -1,5 +1,11 @@
 puts 'Deleting all movies'
 Movie.destroy_all
+User.destroy_all
+
+puts "Create User"
+alexandre = User.create!(email: "alex@attila.com" , password: "azerty")
+william = User.create!(email: "will@attila.com" , password: "azerty")
+alice =  User.create!(email: "alice@attila.com" , password: "azerty")
 
 puts 'Seeding movies without cover'
 movies = []
@@ -13,7 +19,7 @@ movies << Movie.new(
     director: "David Fincher",
     price: 5.99,
     rating: 7.8,
-    user_id: 1
+    user: alexandre
   })
 
 movies << Movie.new(
@@ -26,7 +32,7 @@ movies << Movie.new(
     director: "Paul Thomas Anderson",
     price: 5.99,
     rating: 7.9,
-    user_id: 1
+    user: william
   })
 
 movies << Movie.new(
@@ -39,7 +45,7 @@ movies << Movie.new(
     director: "Denys Arcand",
     price: 5.99,
     rating: 7.7,
-    user_id: 1
+    user: alice
   })
 
 
