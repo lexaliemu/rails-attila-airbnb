@@ -1,18 +1,19 @@
 
 
 <div class="wrapper">
-<%= link_to 'My profile', profile_movies_path %>
+
   <div class="container movies-container">
-    <h1>Index of movies</h1>
+    <h3 class="text-center">Welcome <%= @user.username %> ! Please discover all of our amazing movies:</h3>
 
     <div class="row text-center">
       <% @movies.each do |movie| %>
         <div class="col-md-4">
           <div class="card-movie">
-            <img src='https://source.unsplash.com/random' class="card-movie-cover">
+            <%= cl_image_tag movie.cover, height: 300, width: 150, crop: :fill %>
             <p><%= movie.title %></p>
             <p><%= movie.duration %></p>
             <p>Directed by: <%= movie.director %></p>
+            <%= link_to "", movie_path(movie), class: 'card-link' %>
           </div>
         </div>
       <% end %>
