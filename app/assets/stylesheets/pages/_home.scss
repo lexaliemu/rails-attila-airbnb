@@ -1,49 +1,13 @@
 // Specific CSS for your home-page
-
-.wrapper {
-  background-color: #000000;
-}
-
-.container {
-  margin: 0 auto;
-  width: 970px;
-}
-
-body {
-  color: white;
-}
-
-p {
-
-
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card {
-  background-color: #gray;
-}
-
-.movie-card-cover {
-  width: 350px;
-  height: 300px;
-}
-
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .logo {
   height: 50px;
   width: 70px;
 }
-
 .banner {
   background-image: url("home-banner.jpg");
   background-size: cover !important;
