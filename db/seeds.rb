@@ -80,7 +80,7 @@ list_movies.each do |movie|
       director: movie_hash['Director'],
       price: 5.99,
       rating: movie_hash['imdbRating'],
-      user_id: 1
+      user: alice
     })
   new_movie.remote_cover_url = movie_hash['Poster']
   new_movie.save
