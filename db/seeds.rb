@@ -7,9 +7,9 @@ Movie.destroy_all
 User.destroy_all
 
 puts "Create User"
-alexandre = User.create!(email: "alex@attila.com" , password: "azerty")
-william = User.create!(email: "will@attila.com" , password: "azerty")
-alice =  User.create!(email: "alice@attila.com" , password: "azerty")
+alexandre = User.create!(email: "alex@attila.com" , password: "azerty", username: 'alex')
+william = User.create!(email: "will@attila.com" , password: "azerty", username: 'william')
+alice =  User.create!(email: "alice@attila.com" , password: "azerty", username: 'alice')
 
 puts 'Seeding movies without cover'
 movies = []

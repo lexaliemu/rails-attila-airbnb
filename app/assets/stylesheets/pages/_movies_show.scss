@@ -22,8 +22,14 @@
 }
 
 .buy-space {
-  display: flex;
-  justify-content: space-around;
+  position: relative;
   align-items: center;
   padding: 50px;
+}
+
+.btn {
+  position: absolute;
+  top: 10px;
+  left: 64px;
+  width: 300px;
 }
