@@ -1,5 +1,38 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="wrapper">
+  <div class="container">
+
+    <div class="header">
+      <%= image_tag("attila-logo.jpg", class: "logo") %>
+
+    </div>
+
+    <div class="banner">
+      <div class="banner-content">
+        <h1>Attila</h1>
+        <h3><span id="banner-typed-text"></span></h3>
+        <%= link_to "See all movies", movies_path, class: "btn btn-danger btn-lg" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <% @movies.each do |movie| %>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="card">
+            <img src='https://source.unsplash.com/random' class="movie-card-cover">
+            <div class="card-elements">
+              <h2><%= movie.title %></h2>
+              <p><%= movie.duration %></p>
+              <p>Director: <%= movie.director %></p>
+            </div>
+          </div>
+          <%= link_to "", movie_path(movie), class: 'card-link' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -22,4 +55,4 @@
   </a>
 </div>
  -->
-<%= link_to 'All movies', movies_path %>
+
