@@ -1,0 +1,11 @@
+.card-movie-cover {
+  width: 300px;
+  height: 250px;
+  background-color: $gray;
+}
+.card-movie-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: left;
+}
