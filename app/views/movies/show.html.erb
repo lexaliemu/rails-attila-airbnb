@@ -4,15 +4,15 @@
 
     <div class="cover row justify-content-md-center">
       <div class="col col-lg-5">
-        <%= cl_image_tag @movie.cover, height: 600, width: 100, crop: :limit %>
+        <%= cl_image_tag @movie.cover, height: 600, width: 300, crop: :limit %>
       </div>
 
       <div class="card-movie-detail col-lg-7">
         <p> <%= @movie.title %>
         (<%= @movie.release_date %>)
-        (uploaded by <%= @movie.user_id %>)
+        (uploaded by <%= @user.username %>)
         </p>
-        <p><%= @movie.duration/60000 %>min</p>
+        <p><%= @movie.duration %></p>
         <p>Director : <%= @movie.director %></p>
         <p><%= @movie.description %></p>
 
@@ -37,3 +37,4 @@
 <div class="footer">
 
 </div>
+
