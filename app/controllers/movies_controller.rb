@@ -19,6 +19,10 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @user = current_user
+    @movie_rented = []
+    @user.rentings.each do |renting|
+      @movie_rented << renting.movie
+    end
   end
 
   def profile
