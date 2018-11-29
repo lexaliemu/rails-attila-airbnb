@@ -30,16 +30,17 @@
         <% else %>
           <div class="col-md-4">
             <div class="card-movie">
-              <%= cl_image_tag result.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
-              <div class="card-movie-elements">
-                <p id="movie-title"><%=h truncate(result.title, :length => 25) %></p>
-                <p> Duration: <%= result.duration %></p>
-                <div class="same-line">
-                  <span class="stars"><%= result.rating&.fdiv(2) %></span>
-                  <p><%= result.price %>€</p>
+              <%= link_to movie_path(result), {class: 'card-link'} do  %>
+                <%= cl_image_tag result.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
+                <div class="card-movie-elements">
+                  <p id="movie-title"><%=h truncate(result.title, :length => 25) %></p>
+                  <p> Duration: <%= result.duration %></p>
+                  <div class="same-line">
+                    <span class="stars"><%= result.rating&.fdiv(2) %></span>
+                    <p><%= result.price %>€</p>
+                  </div>
                 </div>
-              </div>
-            <%= link_to "", movie_path(result), class: 'card-link' %>
+              <% end %>
             </div>
           </div>
         <% end %>
