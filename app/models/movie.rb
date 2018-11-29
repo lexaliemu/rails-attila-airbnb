@@ -10,7 +10,6 @@ class Movie < ApplicationRecord
   validates :director, presence: true
   validates :cover, presence: true
   validates :price, presence: true
-  validates :rating, presence: true
   include PgSearch
   multisearchable against: [:title, :description, :director, :category]
 end
