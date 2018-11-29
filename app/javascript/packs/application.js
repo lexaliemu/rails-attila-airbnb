@@ -1,4 +1,14 @@
 import "bootstrap";
 
 import { loadDynamicBannerText } from '../components/banner';
-loadDynamicBannerText();
+
+if (document.getElementById('banner-typed-text')) {
+  loadDynamicBannerText();
+};
+
+
+import { stars } from '../components/card';
+
+$(function() {
+    $('span.stars').stars();
+});
