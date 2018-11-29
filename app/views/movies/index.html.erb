@@ -6,17 +6,23 @@
         <% if params[:query].present? %>
           <div class="col-md-4">
             <% if result.searchable_type == 'User' %>
-             <div class="card-user">
-                <%= cl_image_tag result.searchable.avatar, height: 300, width: 150, crop: :fill %>
-                <p><%= result.searchable.username %></p>
+             <div class="card-user card-movie">
+                <%= cl_image_tag result.searchable.avatar, width: 320, height: 175, crop: :fill %>
+                <p id="movie-title"><%= result.searchable.username %></p>
+                <p id="movie-title-user">(movie uploader)</p>
                 <%= link_to '', movie_path(result), class: 'card-link' %>
              </div>
             <% else  %>
               <div class="card-movie">
                 <%= cl_image_tag result.searchable.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
-                <p><%= result.searchable.title %></p>
-                <p><%= result.searchable.duration %></p>
-                <p>Directed by: <%= result.searchable.director %></p>
+                <div class="card-movie-elements">
+                  <p id="movie-title"><%=h truncate(result.searchable.title, :length => 25) %></p>
+                  <p>Duration: <%= result.searchable.duration %></p>
+                  <div class="same-line">
+                    <span class="stars"><%= result.searchable.rating&.fdiv(2) %></span>
+                    <p><%= result.searchable.price %>€</p>
+                  </div>
+                </div>
                 <%= link_to '', movie_path(result), class: 'card-link' %>
               </div>
             <% end %>

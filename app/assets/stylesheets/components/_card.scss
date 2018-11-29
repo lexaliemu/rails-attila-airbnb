@@ -2,7 +2,6 @@
   padding-top: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-
 }
 
 .card-movie-cover {
@@ -44,6 +43,12 @@
   margin-bottom: 0px;
 }
 
+#movie-title-user {
+
+  color: red;
+
+}
+
 .card-movie-elements {
   padding-right: 20px;
   padding-left: 20px;
@@ -59,3 +64,4 @@ span.stars, span.stars span {
 span.stars span {
     background-position: 0 0;
 }
+

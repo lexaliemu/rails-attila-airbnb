@@ -1,26 +1,44 @@
-<h1 class="text-center"> My Movies</h1>
-
 <div class="wrapper">
-  <div class="container movies-container">
-    <div class="row text-center">
-      <% @movies.each do |movie| %>
-        <div class="col-md-4">
-          <div class="card-movie">
-            <%= cl_image_tag movie.cover, height: 300, width: 150 , crop: :limit %>
-            <p><%= movie.title %></p>
-            <p><%= movie.duration %></p>
-            <p>Directed by: <%= movie.director %></p>
+
+  <div class="container">
+
+    <div class="profile-header">
+      <div><h1>My Movies</h1></div>
+      <div class="profile-header-children"> <%= link_to 'Upload a movie', new_movie_path, :class => "btn btn-danger"  %></div>
+    </div>
+
+    <div class="container movies-container">
+      <div class="row text-center">
+        <% @movies.each do |movie| %>
+          <div class="col-md-4">
+            <div class="card-movie">
+              <%= cl_image_tag movie.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
+              <div class="card-movie-elements">
+                <p id="movie-title"><%=h truncate(movie.title, :length => 25) %></p>
+                <p> Duration: <%= movie.duration %></p>
+                <div class="same-line">
+                  <span class="stars"><%= movie.rating/2 %></span>
+                  <p><%= movie.price %>€</p>
+                </div>
+              </div>
+              <%= link_to "", movie_path(movie), class: 'card-link' %>
+            </div>
             <div class="flexedit">
-              <p class="fixed-bottom-left"><%= link_to 'Edit', edit_movie_path(movie) %></p>
+              <p class="fixed-bottom-left"><%= link_to 'Edit', edit_movie_path(movie), :class => "btn btn-danger" %></p>
               <p class="fixed-bottom-center">
-              <p class="fixed-bottom-right"><%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+              <p class="fixed-bottom-right"><%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger"  %></p>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+
     </div>
   </div>
+
 </div>
-<div class="flexedit">
-  <p class="fixed-bottom-center"> <%= link_to 'Add a movie', new_movie_path, :class => "btn btn-primary text-center"  %> </p>
-</div>
+
+
+
+
+
+
