@@ -65,8 +65,8 @@ end
 
 puts 'IMDB'
 
-list_movies = ['Die Hard','Harry Potter', 'Bohemian Rhapsody', 'Halloween', 'William & Kate']
-list_movies.each do |movie|
+list_movies1 = ['Die Hard','Harry Potter', 'Bohemian Rhapsody', 'Halloween', 'William & Kate','Rambo', 'Dikkenek','King Kong', 'Aladin', 'Bambi']
+list_movies1.each do |movie|
   url = "http://www.omdbapi.com/?t=#{movie}&#{key}"
   movie_serialized = open(url).read
   movie_hash = JSON.parse(movie_serialized)
@@ -85,3 +85,24 @@ list_movies.each do |movie|
   new_movie.remote_cover_url = movie_hash['Poster']
   new_movie.save
 end
+
+# list_movies2 = ['Terminator','La verite si je mens', 'The Fall','Dumbo','Creed', 'Love Actually', 'Black Panther','Jumanji', 'The Dark knight', 'Pulp Fiction', 'Inception', 'GoodFellas', 'The pianist', 'The departed', 'Whiplash', 'Gladiator', 'Alien', 'Django Unchained','Coco', 'Old boy', 'Toy Story', 'Snatch', 'Scarface', 'Casino' ]
+# list_movies2.each do |movie|
+#   url = "http://www.omdbapi.com/?t=#{movie}&#{key}"
+#   movie_serialized = open(url).read
+#   movie_hash = JSON.parse(movie_serialized)
+#   new_movie = Movie.create(
+#     {
+#       title: movie_hash['Title'],
+#       release_date: movie_hash['Year'],
+#       duration: movie_hash['Runtime'],
+#       description: movie_hash['Plot'],
+#       category: movie_hash['Genre'],
+#       director: movie_hash['Director'],
+#       price: 5.99,
+#       rating: movie_hash['imdbRating'],
+#       user: [alice, alexandre, william].sample
+#     })
+#   new_movie.remote_cover_url = movie_hash['Poster']
+#   new_movie.save
+# end
