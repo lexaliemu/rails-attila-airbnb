@@ -5,13 +5,14 @@ key2 = 'apikey=83c06c69'
 key3 = 'apikey=249b1617'
 
 puts 'Deleting all movies'
+Renting.destroy_all
 Movie.destroy_all
 User.destroy_all
 
 puts "Create User"
-alexandre = User.create!(email: "alex@attila.com" , password: "azerty", username: 'Alex')
-william = User.create!(email: "will@attila.com" , password: "azerty", username: 'William')
-alice =  User.create!(email: "alice@attila.com" , password: "azerty", username: 'Alice')
+alexandre = User.create!(email: "alex@attila.com" , password: "azerty", username: 'Alex', avatar: 'alexAvatar.jpg')
+william = User.create!(email: "will@attila.com" , password: "azerty", username: 'William', avatar: 'williamAvatar.jpeg')
+alice =  User.create!(email: "alice@attila.com" , password: "azerty", username: 'Alice', avatar: 'aliceAvatar.png')
 
 puts 'Seeding movies without cover'
 movies = []
