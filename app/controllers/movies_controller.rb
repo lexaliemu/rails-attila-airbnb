@@ -1,7 +1,16 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
-    @user = current_user
+    if params[:query].present?
+      sql_query = " \
+        movies.title @@ :query \
+        OR movies.syllabus @@ :query \
+        OR directors.first_name @@ :query \
+        OR directors.last_name @@ :query \
+      "
+      @movies = Movie.joins(:director).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @movies = Movie.all
+    end
   end
 
   def show
