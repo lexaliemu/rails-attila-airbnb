@@ -2,11 +2,33 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  padding-left: 25px;
+  padding-left: 28px;
 }
 
 .profile-header-children {
   margin-left: 15px;
   margin-top: 12px;
 
+}
+
+.btn-alice {
+  color: $red-alice;
+  font-size: 22px;
+}
+
+.btn-alice:hover {
+  color: $red-alice;
+  opacity: 0.8;
+}
+
+.fixed-bottom-left {
+  margin-top: 0;
+  padding-top:0;
+  padding-right: 20px;
+}
+
+.fixed-bottom-left {
+  margin-top: 0;
+  padding-top:0;
+  padding-left: 10px;
 }
