@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+    @user = current_user
     if params[:query].present?
       sql_query = " \
         movies.title @@ :query \
