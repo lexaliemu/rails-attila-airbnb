@@ -5,6 +5,7 @@ key2 = 'apikey=83c06c69'
 key3 = 'apikey=249b1617'
 
 puts 'Deleting all movies'
+Review.destroy_all
 Renting.destroy_all
 Movie.destroy_all
 User.destroy_all
@@ -24,8 +25,9 @@ movies << Movie.new(
     description: "After a wealthy banker is given an opportunity to participate in a mysterious game, his life is turned upside down when he becomes unable to distinguish between the game and reality.",
     category: "Thriller",
     director: "David Fincher",
-    price: 5.99,
+    price: [3, 4, 5].sample,
     rating: 7.8,
+    nb_rates: 1 + rand(9),
     user: alexandre
   })
 
@@ -37,8 +39,9 @@ movies << Movie.new(
     description: "The story of a young man's adventures in the California pornography industry of the late 1970s and early 1980s.",
     category: "Adventure",
     director: "Paul Thomas Anderson",
-    price: 5.99,
+    price: [3, 4, 5].sample,
     rating: 7.9,
+    nb_rates: 1 + rand(9),
     user: william
   })
 
@@ -50,8 +53,9 @@ movies << Movie.new(
     description: "During his final days, a dying man is reunited with old friends, former lovers, his ex-wife, and his estranged son.",
     category: "History",
     director: "Denys Arcand",
-    price: 5.99,
+    price: [3, 4, 5].sample,
     rating: 7.7,
+    nb_rates: 1 + rand(9),
     user: alice
   })
 
@@ -82,8 +86,9 @@ list_movies1.each do |movie|
       description: movie_hash['Plot'],
       category: movie_hash['Genre'],
       director: movie_hash['Director'],
-      price: 5.99,
+      price: [3, 4, 5].sample,
       rating: movie_hash['imdbRating'],
+      nb_rates: 1 + rand(9),
       user: alexandre
     })
   new_movie.remote_cover_url = movie_hash['Poster']
@@ -106,8 +111,9 @@ list_movies2.each do |movie|
       description: movie_hash['Plot'],
       category: movie_hash['Genre'],
       director: movie_hash['Director'],
-      price: 5.99,
+      price: [3, 4, 5].sample,
       rating: movie_hash['imdbRating'],
+      nb_rates: 1 + rand(9),
       user: alice
     })
   new_movie.remote_cover_url = movie_hash['Poster']
@@ -130,8 +136,9 @@ list_movies3.each do |movie|
       description: movie_hash['Plot'],
       category: movie_hash['Genre'],
       director: movie_hash['Director'],
-      price: 5.99,
+      price: [3, 4, 5].sample,
       rating: movie_hash['imdbRating'],
+      nb_rates: 1 + rand(9),
       user: william
     })
   new_movie.remote_cover_url = movie_hash['Poster']
