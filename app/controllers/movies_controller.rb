@@ -30,6 +30,14 @@ class MoviesController < ApplicationController
     @movies = @user.movies
   end
 
+  def purchase
+    @user = current_user
+    @movies = []
+    @user.rentings.each do |renting|
+      @movies << renting.movie
+    end
+  end
+
   def new
     @movie = Movie.new
   end

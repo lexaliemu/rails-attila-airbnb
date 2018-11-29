@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :rentings
     collection do
       get 'profile', to: "movies#profile"
+      get 'purchase', to: "movies#purchase"
     end
+    resources :reviews
   end
 end

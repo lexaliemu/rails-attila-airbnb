@@ -1,6 +1,7 @@
 class Movie < ApplicationRecord
   belongs_to :user
   has_many :rentings
+  has_many :reviews
   mount_uploader :cover, PhotoUploader
   validates :title, presence: true
   validates :release_date, presence: true

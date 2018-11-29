@@ -19,6 +19,7 @@
 
       <!-- Links when logged in -->
       <%= link_to "All movies", movies_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My purchases", purchase_movies_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -27,7 +28,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to profile_movies_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "My Movies") %>
               <% end %>
             </li>
             <li>

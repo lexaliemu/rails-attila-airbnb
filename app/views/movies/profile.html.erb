@@ -12,16 +12,17 @@
         <% @movies.each do |movie| %>
           <div class="col-md-4">
             <div class="card-movie">
-              <%= cl_image_tag movie.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
-              <div class="card-movie-elements">
-                <p id="movie-title"><%=h truncate(movie.title, :length => 25) %></p>
-                <p> Duration: <%= movie.duration %></p>
-                <div class="same-line">
-                  <span class="stars"><%= movie.rating/2 %></span>
-                  <p><%= movie.price %>€</p>
+              <%= link_to movie_path(movie), {class: 'card-link'} do  %>
+                <%= cl_image_tag movie.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
+                <div class="card-movie-elements">
+                  <p id="movie-title"><%=h truncate(movie.title, :length => 25) %></p>
+                  <p> Duration: <%= movie.duration %></p>
+                  <div class="same-line">
+                    <span class="stars"><%= movie.rating/2 %></span>
+                    <p><%= movie.price %>€</p>
+                  </div>
                 </div>
-              </div>
-              <%= link_to "", movie_path(movie), class: 'card-link' %>
+              <% end %>
             </div>
             <div class="flexedit">
               <p class="fixed-bottom-left"><%= link_to '', edit_movie_path(movie), :class => "fas fa-pencil-alt btn-alice" %></p>
