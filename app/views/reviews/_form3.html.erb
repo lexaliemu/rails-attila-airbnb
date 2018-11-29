@@ -1,4 +1,5 @@
 <%= simple_form_for [@movie, @review] do |f| %>
   <%= f.input :content, placeholder: "Your review", label: false  %>
+  <%= f.input :rate, placeholder: "Rating (1-10)"  %>
   <%= f.submit "Add this comment!", class: "btn btn-danger" %>
 <% end %>
