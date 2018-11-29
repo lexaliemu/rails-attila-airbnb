@@ -15,8 +15,12 @@
         <p><%= @movie.duration %></p>
         <p>Director : <%= @movie.director %></p>
         <p><%= @movie.description %></p>
-
-
+        <% if @movie.reviews.any? %>
+          <p>Last Reviews:</p>
+          <% @movie.reviews.each do |review| %>
+            <p> - <%= review.content %> (by <%= review.user.username %> on <%= review.date_comment %>)</p>
+          <% end %>
+        <% end %>
       </div>
     </div>
 
