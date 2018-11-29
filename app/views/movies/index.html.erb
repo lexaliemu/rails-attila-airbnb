@@ -1,21 +1,36 @@
-
-
 <div class="wrapper">
   <div class="container movies-container">
     <h3 class="text-center">Welcome <%= @user.username %> ! Please discover all of our amazing movies:</h3>
-
     <div class="row text-center">
-      <% @movies.each do |movie| %>
-        <div class="col-md-4">
+      <% @search_results.each do |result| %>
+        <% if params[:query].present? %>
+          <div class="col-md-4">
+           <% if result.searchable_type == 'User' %>
+             <div class="card-user">
+                <%= cl_image_tag result.searchable.avatar, height: 300, width: 150, crop: :fill %>
+                <p><%= result.searchable.username %></p>
+                <%= link_to '', movie_path(result), class: 'card-link' %>
+             </div>
+          <% else  %>
+            <div class="card-movie">
+              <%= cl_image_tag result.searchable.cover, height: 300, width: 150, crop: :fill %>
+              <p><%= result.searchable.title %></p>
+              <p><%= result.searchable.duration %></p>
+              <p>Directed by: <%= result.searchable.director %></p>
+              <%= link_to '', movie_path(result), class: 'card-link' %>
+            </div>
+          <% end %>
+        <% else %>
           <div class="card-movie">
-            <%= cl_image_tag movie.cover, height: 300, width: 150, crop: :fill %>
-            <p><%= movie.title %></p>
-            <p><%= movie.duration %></p>
-            <p>Directed by: <%= movie.director %></p>
-            <%= link_to '', movie_path(movie), class: 'card-link' %>
+            <%= cl_image_tag result.cover, height: 300, width: 150, crop: :fill %>
+            <p><%= result.title %></p>
+            <p><%= result.duration %></p>
+            <p>Directed by: <%= result.director %></p>
+            <%= link_to '', movie_path(result), class: 'card-link' %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>
