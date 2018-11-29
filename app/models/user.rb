@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :movies
   has_many :rentings
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true
 end
