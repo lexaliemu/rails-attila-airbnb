@@ -10,7 +10,7 @@
       <div class="card-movie-detail col-lg-7">
         <p> <%= @movie.title %>
         (<%= @movie.release_date %>)
-        (uploaded by <%= @user.username %>)
+        (uploaded by <%= @movie.user.username %>)
         </p>
         <p><%= @movie.duration %></p>
         <p>Director : <%= @movie.director %></p>
