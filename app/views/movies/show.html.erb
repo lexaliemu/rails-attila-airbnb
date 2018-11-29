@@ -24,7 +24,11 @@
 
     <div class="row">
       <div class="buy-space col col-lg-4">
-        <button type="button" class="btn btn-danger btn-lg btn-block">Watch this movie</button>
+        <% if @movie.user == @user || @user.rentings[0].status %>
+          <%= link_to 'Watch this movie', '#', class: "btn btn-danger btn-lg btn-block" %>
+        <% else %>
+          <%= link_to 'Buy this movie' , movie_rentings_path(@movie), method: "post", class: "btn btn-danger btn-lg btn-block" %>
+        <% end %>
       </div>
 
       <div class="col-lg-8">
