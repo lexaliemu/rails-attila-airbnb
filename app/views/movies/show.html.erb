@@ -16,9 +16,15 @@
         <p>Director : <%= @movie.director %></p>
         <p><%= @movie.description %></p>
         <% if @movie.reviews.any? %>
-          <p>Last Review(s):</p>
+          <div class="same-line">
+            <p>Last Review(s):</p>
+            <span class="stars"><%= @movie.rating&.fdiv(2) %></span>
+          </div>
           <% @movie.reviews.each do |review| %>
-            <p> - <%= review.content %> (by <%= review.user.username %> on <%= review.date_comment %>)</p>
+            <div class="same-line">
+              <p> - <%= review.content %> (by <%= review.user.username %> on <%= review.date_comment %>)</p>
+              <span class="stars"><%= review.rate&.fdiv(2) %></span>
+            </div>
           <% end %>
         <% end %>
       </div>
