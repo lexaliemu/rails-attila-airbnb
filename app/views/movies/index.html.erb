@@ -1,26 +1,42 @@
-
-
 <div class="wrapper">
   <div class="container movies-container">
     <h3 class="text-center">Welcome <%= @user.username %> ! Please discover all of our amazing movies:</h3>
-
     <div class="row text-center">
-      <% @movies.each do |movie| %>
-        <div class="col-md-4">
+      <% @search_results.each do |result| %>
+        <% if params[:query].present? %>
+          <div class="col-md-4">
+           <% if result.searchable_type == 'User' %>
+             <div class="card-user">
+                <%= cl_image_tag result.searchable.avatar, height: 300, width: 150, crop: :fill %>
+                <p><%= result.searchable.username %></p>
+                <%= link_to '', movie_path(result), class: 'card-link' %>
+             </div>
+          <% else  %>
+            <div class="card-movie">
+              <%= cl_image_tag result.searchable.cover, height: 300, width: 150, crop: :fill %>
+              <p><%= result.searchable.title %></p>
+              <p><%= result.searchable.duration %></p>
+              <p>Directed by: <%= result.searchable.director %></p>
+              <%= link_to '', movie_path(result), class: 'card-link' %>
+            </div>
+          <% end %>
+        <% else %>
           <div class="card-movie">
-            <%= cl_image_tag movie.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
+
+            <%= cl_image_tag result.searchable.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
             <div class="card-movie-elements">
-              <p id="movie-title"><%=h truncate(movie.title, :length => 25) %></p>
-              <p> Duration: <%= movie.duration %></p>
+              <p id="movie-title"><%=h truncate(result.searchable.title, :length => 25) %></p>
+              <p> Duration: <%= result.searchable.duration %></p>
               <div class="same-line">
-                <span class="stars"><%= movie.rating/2 %></span>
-                <p><%= movie.price %>€</p>
+                <span class="stars"><%= result.searchable.rating/2 %></span>
+                <p><%= result.searchable.price %>€</p>
               </div>
             </div>
-            <%= link_to "", movie_path(movie), class: 'card-link' %>
+            <%= link_to "", movie_path(result), class: 'card-link' %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    <% end %>
     </div>
 
   </div>

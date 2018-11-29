@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :movies
   has_many :rentings
+  include PgSearch
+  multisearchable against: [ :username ]
 end
