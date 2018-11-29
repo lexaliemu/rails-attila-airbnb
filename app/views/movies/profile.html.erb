@@ -24,9 +24,8 @@
               <%= link_to "", movie_path(movie), class: 'card-link' %>
             </div>
             <div class="flexedit">
-              <p class="fixed-bottom-left"><%= link_to 'Edit', edit_movie_path(movie), :class => "btn btn-danger" %></p>
-              <p class="fixed-bottom-center">
-              <p class="fixed-bottom-right"><%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger"  %></p>
+              <p class="fixed-bottom-left"><%= link_to '', edit_movie_path(movie), :class => "fas fa-pencil-alt btn-alice" %></p>
+              <p class="fixed-bottom-right"><%= link_to '', movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }, :class => "fas fa-trash-alt btn-alice"  %></p>
             </div>
           </div>
         <% end %>
