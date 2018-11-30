@@ -8,7 +8,7 @@
         </div>
         <div class="show-cta">
           <% if @movie.user == @user || @movie_rented.include?(@movie) %>
-            <%= link_to 'Watch this movie', '#', class: "btn btn-danger btn-lg" %>
+            <%= link_to 'Watch this movie', watch_movie_path(@movie), class: "btn btn-danger btn-lg" %>
           <% else %>
             <%= link_to 'Buy this movie' , movie_rentings_path(@movie), method: "post", class: "btn btn-danger btn-lg" %>
           <% end %>
@@ -27,33 +27,27 @@
          <% if @movie.reviews.any? %>
           <div class="same-line together">
             <p>Average rate: </p><span class="stars"><%= @movie.rating&.fdiv(2) %></span>
-            
-            
-            
-            
-            
-            
-            
           </div>
           <% @movie.reviews.each do |review| %>
             <div class="same-line">
               <p>- "<%= review.content %>" (posted by <%= review.user.username %> on <%= review.date_comment %>)</p><span class="stars"><%= review.rate&.fdiv(2) %></span>
             </div>
           <% end %>
+          <% else %>
+            <p>This movie does not have any review yet; rent it to be able to add a review!</p>
         <% end %>
       </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="buy-space col col-lg-4">
-        <% if @movie.user == @user || @movie_rented.include?(@movie) %>
-          <%= link_to 'Watch this movie', watch_movie_path(@movie), class: "btn btn-danger btn-lg btn-block" %>
-        <% else %>
-          <p>This movie does not have any review yet; rent it to be able to add a review!</p>
-        <% end %>
+        <#% if @movie.user == @user || @movie_rented.include?(@movie) %>
+          <#%= link_to 'Watch this movie', watch_movie_path(@movie), class: "btn btn-danger btn-lg btn-block" %>
+
+        <#% end %>
         <hr>
 
       </div>
-    </div>
+    </div> -->
 
   </div>
 </div>
