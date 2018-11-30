@@ -2,7 +2,7 @@
 
   <div class="container">
     <div class="profile-header">
-      <div><h1>My Purchases</h1></div>
+      <div><h3>My purchases:</h3></div>
       <div class="profile-header-children"> </div>
     </div>
 
@@ -23,8 +23,8 @@
                 </div>
               <% end %>
             </div>
-            <div class="flexedit">
-              <p class="fixed-bottom-left"><%= link_to 'Add a comment',  new_movie_review_path(movie), :class => "fas fa-pencil-alt btn-alice" %></p>
+            <div class="flexedit fixed-bottom-left">
+              <%= link_to 'Add a review',  new_movie_review_path(movie), :class => "fas fa-pencil-alt btn-alice" %>
             </div>
           </div>
         <% end %>
