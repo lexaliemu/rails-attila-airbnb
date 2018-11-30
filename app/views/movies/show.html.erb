@@ -17,7 +17,7 @@
         <p><%= @movie.description %></p>
         <% if @movie.reviews.any? %>
           <div class="same-line">
-            <p>Last Review(s):</p>
+            <p>Last <%= pluralize @movie.reviews.size, "Review" %></p>
             <span class="stars"><%= @movie.rating&.fdiv(2) %></span>
           </div>
           <% @movie.reviews.each do |review| %>
@@ -35,7 +35,7 @@
     <div class="row">
       <div class="buy-space col col-lg-4">
         <% if @movie.user == @user || @movie_rented.include?(@movie) %>
-          <%= link_to 'Watch this movie', '#', class: "btn btn-danger btn-lg btn-block" %>
+          <%= link_to 'Watch this movie', watch_movie_path(@movie), class: "btn btn-danger btn-lg btn-block" %>
         <% else %>
           <%= link_to 'Buy this movie' , movie_rentings_path(@movie), method: "post", class: "btn btn-danger btn-lg btn-block" %>
         <% end %>

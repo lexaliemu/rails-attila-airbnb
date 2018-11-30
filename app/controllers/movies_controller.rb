@@ -68,6 +68,10 @@ class MoviesController < ApplicationController
     redirect_to profile_movies_path
   end
 
+  def watch
+    @movie = Movie.find(params[:id])
+  end
+
   private
 
   def movie_params

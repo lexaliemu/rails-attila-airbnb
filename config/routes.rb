@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       get 'profile', to: "movies#profile"
       get 'purchase', to: "movies#purchase"
     end
+    member do
+      get 'watch', to: "movies#watch"
+    end
     resources :reviews
   end
 end

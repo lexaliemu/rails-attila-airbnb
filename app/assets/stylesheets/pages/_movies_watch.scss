@@ -1,0 +1,16 @@
+.js-video {
+  height: 100vh;
+  padding-top: 25px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+.js-video embed, .js-video iframe, .js-video object, .js-video video {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  position: absolute;
+}
