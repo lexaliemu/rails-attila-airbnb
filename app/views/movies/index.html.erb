@@ -14,6 +14,7 @@
              </div>
             <% else  %>
               <div class="card-movie">
+                <%= link_to movie_path(result.searchable), {class: 'card-link'} do %>
                 <%= cl_image_tag result.searchable.cover, width: 320, height: 175, crop: :thumb, gravity: :face %>
                 <div class="card-movie-elements">
                   <p id="movie-title"><%=h truncate(result.searchable.title, :length => 25) %></p>
@@ -22,8 +23,8 @@
                     <span class="stars"><%= result.searchable.rating&.fdiv(2) %></span>
                     <p><%= result.searchable.price %>€</p>
                   </div>
+                  <% end %>
                 </div>
-                <%= link_to '', movie_path(result), class: 'card-link' %>
               </div>
             <% end %>
           </div>
