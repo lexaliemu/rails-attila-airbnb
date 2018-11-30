@@ -52,7 +52,7 @@
 
 span.stars, span.stars span {
     display: block;
-    background: url(stars.png) 0 -16px repeat-x;
+    background: asset-url('stars.png') 0 -16px repeat-x;
     width: 80px;
     height: 16px;
 }
